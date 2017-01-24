@@ -31,3 +31,27 @@ Collect some useful JavaScript methods, sometimes you don't want to write again,
 	// result => 'My name is TANG, live in Guangzhou.'
 	```
 
+#### Emitter
+
+* Usage: `new Emiter()`
+
+* A simple event emitter.
+
+* Example:
+	```javascript
+	var emitter = new Emitter();
+	emitter.on('foo', func);
+	emitter.once('bar', func);
+	emitter.emit('bar', [123]);
+	emitter.off('bar', func);
+	emitter.off('foo');
+
+	var data = {a: 123};
+	var emitData = new Emitter(data);
+	emitData.a === 123 // true
+	emitData.on('foo', func);
+	emitData.once('bar', func);
+	emitData.emit('bar', [123]);
+	emitData.off('bar', func);
+	emitData.off('foo');
+	```
